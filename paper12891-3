@@ -1,0 +1,44 @@
+Summary:
+This paper studies controllable text generation with an emphasis on sequence level rewards and distribution matching. It first establishes a connection between reward maximization (RM) with KL control and distribution matching (DM) in a general sense. They show that there is an equivalent formulation of RM in DM terms and also DM can be connected to RM by thinking the importance sampling (IS) term as a reward. Using these connections, the authors highlight that a recent DM method, distributional policy gradient (DPG), suffers from the same high variance of REINFORCE estimators as the latter appears in the loss function of DPG. As is typical in RL, the authors propose using advantage estimations to reduce the variance of the DPG estimator and show that the intuitive expected reward (estimated as mean IS weights) gives unbiased estimates. The authors evaluate the proposed method, GDC++, on 10 controllable generation tasks including pointwise and distributional constraints using moment matching, KL-divergence, BLEU score metrics. When compared to other baselines, GDC++ shows lower divergence from the prior language model while also having competitive constraint matching. Using an advantage estimation is also shown to perform better and more stable results.
+
+Strengths And Weaknesses:
+The main strength of the paper is the connection between RM and DM to motivate using a baseline in DPG. There are also several weaknesses that needs clarification. I detail these below.
+
+Strength
+The paper is well written and easy to follow.
+The connection between RM and DM to motivate using a baseline in DPG and showing that the particular expected reward baseline is unbiased are interesting.
+Experimental results show improvement compared to GDC and Ziegler et al.
+Weaknesses
+While DM is not exactly the same as RM, I think there are previous work that incorporates KL-divergence between an online distribution and an offline distribution as a reward signal to train a policy using RL. Some of the more recent work are SAC
+, SMM
+ that induce a reward using a distribution matching and an older work *. While these don't necessarily utilize a KL-control, they study KL-divergence objective with energy based models or reward shaping.
+The KL-divergence appears in different forms at different places. You define DPG in Line 105 and Algorithm 1 using 
+ while in Line 135 it is reverse.
+Ziegler uses a reward shaping with a KL-control and the model is optimized via PPO. As PPO uses GAE, it also subtracts a baseline from this new reward. I think the relationship between this and the proposed baseline needs to be addressed.
+It is also not clear how the 
+ is tuned in Ziegler baseline. By varying this hyperparameter, Ziegler can do better on 
+ while doing worse on 
+, performing very similar to GDC++.
+There is no human evaluation study in the paper and it is not clear how to judge the metrics proposed. For example, does higher KL from the language prior always means worse generation?
+ Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor. 
+ Efficient Exploration via State Marginal Matching. * Reinforcement Learning by Probability Matching.
+
+Questions:
+I have several questions regarding my concerns above.
+
+Could you clarify how your derivations are related to prior work on distribution matching and max entropy RL ?
+Can you clarify the form of KL divergence used in the paper?
+What is the relationship between the baseline used in the paper and that of Ziegler?
+Could you clarify how Ziegler is trained, especially 
+ hyperparameter? Can you get better tradeoff by tuning this hyperparameter?
+Can you discuss how these metrics translate into human satisfaction?
+Limitations:
+The authors addressed the limitations.
+
+Ethics Flag: No
+Soundness: 3 good
+Presentation: 3 good
+Contribution: 3 good
+Rating: 7: Accept: Technically solid paper, with high impact on at least one sub-area, or moderate-to-high impact on more than one areas, with good-to-excellent evaluation, resources, reproducibility, and no unaddressed ethical considerations.
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

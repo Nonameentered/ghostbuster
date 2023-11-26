@@ -1,0 +1,33 @@
+Summary: The paper discusses a novel numerical method for solving Statistical Inverse Problems (SIP) using Stochastic Gradient Descent (SGD) algorithms. The authors propose a modification for the SGD algorithm to smooth the stochastic gradients and improve empirical performance. The paper provides theoretical guarantees for the excess risk performance of the developed algorithm and includes an example of the algorithm applied to a Functional Linear Regression model.
+
+Strengths and Weaknesses:
+
+Strengths:
+
+Originality: The paper presents a novel approach to solving SIP using modified SGD algorithms, which is a fresh take on the problem.
+Quality: The submission is technically sound with theoretical analysis and experimental results supporting the claims. The authors have been careful in evaluating both the strengths and weaknesses of their work.
+Clarity: The paper is well-organized and clearly written, providing enough information for an expert reader to understand the proposed method and the results.
+Significance: The paper addresses a difficult task and proposes a method that could potentially advance the state of the art in solving SIP.
+Weaknesses:
+
+Limited Application Examples: The paper could benefit from more diverse real-world application examples to demonstrate the versatility of the proposed method.
+Comparison with Other Methods: The paper lacks extensive comparison with other state-of-the-art methods, which is crucial for understanding the relative performance of the proposed algorithm.
+Questions:
+
+Could the authors provide more diverse real-world application examples to further validate the effectiveness of the proposed method?
+How does the proposed algorithm compare with other state-of-the-art methods in terms of performance and efficiency?
+Limitations: The authors have discussed the limitations of their work, but more insight into the potential negative societal impact and how it could be mitigated would be beneficial.
+
+Ethical Concerns: No apparent ethical issues with this paper. The authors have maintained a standard of clarity and honesty in their work.
+
+Soundness: Rating: 3 (good)
+
+Presentation: Rating: 3 (good)
+
+Contribution: Rating: 3 (good)
+
+Overall: Rating: 7 (Accept)
+
+Confidence: Rating: 4 (You are confident in your assessment, but not absolutely certain.)
+
+I acknowledge that I have and will continue to abide by the NeurIPS code of conduct while performing my duties as a reviewer. This review is structured to provide a comprehensive assessment of the paper, considering various aspects including originality, quality, clarity, and significance. The paper is well-written and presents a novel approach, but more real-world application examples and comparisons with other methods would strengthen the paper. The overall rating is an accept, with confidence in the assessment.

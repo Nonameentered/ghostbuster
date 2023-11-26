@@ -1,0 +1,19 @@
+Summary:
+The paper elaborates on the idea of the DPG (Parshakova et al., 2019b) and GDC (Khalifa et al., 2021) paper, explicitly states that "KL-control", a specific reward maximization method, is also a distribution matching method with energy-based models. The paper also clearly explains the similarity and difference between distributional gradient descent and standard gradient descent. An advantage-based GDC algorithm is introduced in the paper as a standard technique in RL to reduce the variance of gradient estimates. Numerical experiments show the effectiveness of the proposed method.
+
+Strengths And Weaknesses:
+DPG framework could be a powerful tool for fine-tuning LMs to maximize some non-differentiable objectives using RL/EBM, but also prevent the catastrophic forgetting problem. The idea is neat with mostly straightforward derivation. The paper clarifies the key concepts and connections to existing training paradigms. Readers that are perplexed about fine-tuning LMs with reinforcement learning would greatly benefit from this paper.
+
+Questions:
+I don't have any critical questions or confusions about the paper.
+
+Limitations:
+Limitations and future directions are well discussed at the end of the paper.
+
+Ethics Flag: No
+Soundness: 4 excellent
+Presentation: 4 excellent
+Contribution: 3 good
+Rating: 7: Accept: Technically solid paper, with high impact on at least one sub-area, or moderate-to-high impact on more than one areas, with good-to-excellent evaluation, resources, reproducibility, and no unaddressed ethical considerations.
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work.
+Code Of Conduct: Yes

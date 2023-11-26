@@ -1,0 +1,49 @@
+Summary:
+This paper studies a method of solving functional inverse problems. The problem set-up is (X,Y) are from a particular distribution, with Y = Af + noise, where f is some function defining the relationship between X and Y. The major example is: if X is a function on [0,1], then Y = int_0^1 f(t)X(t)dt + noise. The goal of the general problem is to find f.
+
+The paper introduces a means of finding an appropriate f from a class of functions by stochastic gradient descent, emphasizing results for a particular context: functional linear regression. They review previous results and other techniques for solving stochastic inverse problems, define the problem rigorously, and present example problems. They then give the main algorithm, a sort of functional SGD, and identify issues with it due to functional complexity involving the kernel. To address this, they provide another algorithm which uses the iteratively improving f in the SGD algorithm to teach common ML learners, which are used to build f instead of a kernel. They provide probabilistic error bounds and show a probabilistic convergence rate of O(1/ \sqrt(n)). They then present synthetic and natural experiments, with a comparison to another method.
+
+Strengths And Weaknesses:
+Strengths: -great organization -clear examples -good mathematical exposition -solid theoretical results -clear writing -interesting and good experimental results -overall interesting problem
+
+weaknesses:
+
+experimental results seem inconsistently or incompletely reported.
+a few vagaries in mathematics (see questions)
+Questions:
+Questions:
+
+On Theorem 4.5, you claim the result is independent of the dimensionality of the codomain of L_2(X) and L_2(W), the values of n and k in R^d and R^k. Your proof deals with d=1. Are you sure your results are independent of the value of d? If you are sure, perhaps you could include a comment about how all inferences are independent of the values of k and d?
+Table 4 says SGD outperforms FPLR, but figure 3 indicates FPLR outperforms SGD. Is this an error? Furthermore, I find it odd that all FPLR have the same error in table 4. Are they the same function? (Aside: is SGD = SGD-SIP?) This makes it look like some of your experimental results are incomplete or incorrect. Furthermore, the thoroughness of the deconvolution results are much less thorough than the FLR in the appendix. Please comment.
+The order of convergence for the algorithm, O(1 / \sqrt(n)), seems not so great, and the algorithm that has this guarantee looks jagged and compares poorly to the already established method. Can you comment on the order of convergence, and how it compares to other methods?
+Minor issues:
+
+Can you provide a table for results of B2?
+Is the equation at the bottom of page 3 a component-wise integral, since X takes values in R^d but f takes values in R? This may trouble readers if not mentioned. If this is true, is it necessary X take values in R^d?
+On (138). If x is a specific realization of X, then I believe your conditioning is backwards: you want \phi(x) = E(\partial*l(Y,Af)| X = x). Or do you write it the way you do because you use eq (1), with Y still a random variable of the noise, although is X specified? If this is the case, are you taking the expectation only over the noise, \epsilon? On the other hand, if x is set and Y takes one value for a specified x, what distribution is the expectation over?
+Dimensionally not accounted for in (117), (141), etc. EG: A(g)[X] in R^d, so (Ag)^2 not defined if d>1). Also, \partial l(...)*Ag is R^d x R^d, should you should use transpose or standard inner product?
+Posed assuming the 1-d case, dropping the inner-product brackets (144,147,...). Not sure if this is notationally standard.
+(147) A*g is in R^k, but E(\Phi((X;w)g(X)) is in R^d. Even if d = 1, dimensions do not match. Is \Phi in normally in R^{k x d}?
+Typos/minor issues:
+
+Sentence in (64-66) is confusing, hard to understand.
+"a prespecified basis functions" (74-75)
+"to control directly to tackle (3) directly" (103-104)
+"Y is giving by" (bottom of page 3)
+"also in deconvolutional problems" (112)
+indeed have a solution (128)
+does not dependent (136)
+a coarser grid where and each (214-215)
+Broken references in (380)
+Figure 3 says FPCR.
+Limitations:
+This is my first time being exposed to the topic of the statistical inverse problem, so I am unfamiliar with some of the relevant literature. They apply the method to standard quadratic loss, and only to FLR and deconvolution. I would like to see an exposition, even if brief, supporting the potential breadth of application. Even better, applications to more problems. This may due to my lack of familiarity with the subject.
+However, a low rate of convergence for the excess risk, and some choppy graphs for algorithm 1 seem a liability, To be fair, this is made up for with strong and interesting theoretical results that could be built of of, and a strong showing for the ML-assisted algorithm.
+Is it possible the ML-assist may not give much of a boost, or may do harm, if the kernel-sampling in not well suited to the ML-learners?
+Ethics Flag: No
+Soundness: 4 excellent
+Presentation: 4 excellent
+Contribution: 3 good
+Rating: 8: Strong Accept: Technically strong paper, with novel ideas, excellent impact on at least one area, or high-to-excellent impact on multiple areas, with excellent evaluation, resources, and reproducibility, and no unaddressed ethical considerations.
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

@@ -1,0 +1,52 @@
+Summary:
+In this paper, the authors propose an SGD approach to solve statistical inverse problems (SIPs). Formally, the problem is to find the parameter 
+ satisfying the relation 
+, where the operator 
+ is known, and 
+ and 
+ are given observations. This can be achieved by minimizing the quantity 
+, where 
+ is a loss function. For 
+ linear and bounded, and with additional (milder) assumptions, the authors are able to write the gradient of 
+ as the average of a function 
+, whose expression has to be derived explicitly for the specific SIP considered. With this result at hand, the authors propose two algorithms to solve SIPs in the spirit of SGD, where the average giving the gradient is approximated by one sample at each iteration. Their main result proves a performance guarantee for such algorithms. The authors apply the proposed techniques to functional linear regressions, performing numerical tests both on synthetic and real data, and deconvolution (discussed in the supplementary material).
+
+Strengths And Weaknesses:
+The paper proposes an SGD approach to solve SIPs, thus providing, to the best of my knowledge, an original contribution (at least within the probabilistic formulation of inverse problems). The exposition is clear and compact (section 5 could be improved, though), and the related literature is well covered.
+
+My main concerns with this work are the following:
+
+General applicability of the proposed method. Even considering the (not so week) Assumption 4.1, the proposed method crucially depends on the possibility of identifying the kernel appearing in Lemma 4.3. The authors do not discuss the limitations associated with identifying 
+, and only present applications where this is doable. Moreover, the proposed algorithms are designed (or, at least, presented) following Corollary 4.4, i.e. considering the squared loss function. It is unclear to me if Theorem 4.5 applies only under this corollary.
+
+Actual improvements over other methods. The comparisons proposed by the authors seem to suggest that their algorithms are at most as good as the FPLR (see Table 2). I wonder then what are the actual advantages of solving SIPs with the proposed SGD algorithms, particularly considering the previous point.
+
+Questions:
+I have the following questions/comments for the authors:
+
+I would appreciate it if the authors could comment on my concerns in the previous section. I believe that addressing these points in the main text would be beneficial for the paper.
+
+The presentation of numerical results could be improved. I believe that Figures 1 and 2 in section 5.2 are a little aimless, as they do not really support any claim in the paper (they take up quite some space, though). Moreover, the label font size in Figure 1 is too small and the x-axis has no scale (or ticks). It is unclear what's on the y-axis in Figure 2 (
+? If so, we don't know the real 
+ anyway...what is the point?). In any case, I would suggest combining the two figures and using the same format for both. The synthetic data experiments could be useful to test robustness against the signal-to-noise ratio.
+
+The sentence 'We highlight that those choices of splines and penalty term are widely used in the literature', line 230, might need a reference.
+
+I am not sure I understand what 'with only one observation' means in this sentence: 'The main benefit is that with only one observation we are able to compute an unbiased estimator for the gradient of the risk function under the true distribution', line 158/159. Can you clarify?
+
+I would change the article 'An' in the title with 'A'.
+
+Line 215 'where and each' -> 'where each'?
+
+Line 103/104 'to control directly to tackle (3) directly' -> 'to tackle (3) directly'?
+
+Limitations:
+The authors have partially addressed the limitations of their work, though there is space for improvement (see the section Strengths And Weaknesses).
+
+Ethics Flag: No
+Soundness: 2 fair
+Presentation: 2 fair
+Contribution: 2 fair
+Rating: 5: Borderline accept: Technically solid paper where reasons to accept outweigh reasons to reject, e.g., limited evaluation. Please use sparingly.
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

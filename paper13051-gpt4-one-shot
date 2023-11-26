@@ -1,0 +1,25 @@
+Summary:
+In this work, the authors introduce a novel numerical method to solve Statistical Inverse Problems (SIP) using a modified Stochastic Gradient Descent (SGD) algorithm. The paper provides theoretical guarantees for the excess risk performance of the developed algorithm and includes an example of the algorithm applied to a Functional Linear Regression model. The authors propose a modification for the SGD algorithm to smooth the stochastic gradients and improve empirical performance.
+
+Strengths And Weaknesses:
+The paper presents a fresh approach to solving SIP using modified SGD algorithms, marking an original contribution to the field. The exposition is clear, and the related literature is well covered. The paper is technically sound with theoretical analysis and experimental results supporting the claims, and the authors have been careful in evaluating both the strengths and weaknesses of their work.
+
+However, the paper could benefit from more diverse real-world application examples to demonstrate the versatility of the proposed method. The paper lacks extensive comparison with other state-of-the-art methods, which is crucial for understanding the relative performance of the proposed algorithm. It is unclear if the proposed method is generally applicable and if it offers actual improvements over other methods.
+
+Questions:
+
+Could the authors provide more diverse real-world application examples to further validate the effectiveness of the proposed method?
+How does the proposed algorithm compare with other state-of-the-art methods in terms of performance and efficiency?
+Could the authors comment on the general applicability of the proposed method and its actual improvements over other methods?
+The presentation of numerical results could be improved. It is unclear what the actual advantages of solving SIPs with the proposed SGD algorithms are, particularly considering the limited application examples and comparison with other methods.
+
+Limitations:
+The authors have discussed the limitations of their work, but more insight into the potential negative societal impact and how it could be mitigated would be beneficial. The paper could be improved by addressing these points in the main text.
+
+Ethics Flag: No
+Soundness: 3 (good)
+Presentation: 3 (good)
+Contribution: 3 (good)
+Rating: 7 (Accept): Technically solid paper, with high impact on at least one sub-area of AI or moderate-to-high impact on more than one area of AI, with good-to-excellent evaluation, resources, reproducibility, and no unaddressed ethical considerations.
+Confidence: 4: You are confident in your assessment, but not absolutely certain. It is unlikely, but not impossible, that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

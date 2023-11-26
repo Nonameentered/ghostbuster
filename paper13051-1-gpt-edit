@@ -1,0 +1,41 @@
+Summary:
+This paper explores a method for solving functional inverse problems. The problem setup is such that (X,Y) are from a specific distribution, with \(Y = Af + \text{noise}\), where \(f\) is a function defining the relationship between \(X\) and \(Y\). A major example is: if \(X\) is a function on \([0,1]\), then \(Y = \int_0^1 f(t)X(t)dt + \text{noise}\). The general problem's goal is to find \(f\).
+
+The paper introduces a method of finding an appropriate \(f\) from a class of functions by stochastic gradient descent, emphasizing results for a particular context: functional linear regression. They review previous results and other techniques for solving stochastic inverse problems, define the problem rigorously, and present example problems. They then provide the main algorithm, a sort of functional SGD, and identify issues with it due to functional complexity involving the kernel. To address this, they offer another algorithm which uses the iteratively improving \(f\) in the SGD algorithm to teach common ML learners, which are used to build \(f\) instead of a kernel. They provide probabilistic error bounds and show a probabilistic convergence rate of \(O(1/ \sqrt{n})\). They then present synthetic and natural experiments, with a comparison to another method.
+
+Strengths And Weaknesses:
+Strengths:
+- Great organization
+- Clear examples
+- Good mathematical exposition
+- Solid theoretical results
+- Clear writing
+- Interesting and good experimental results
+- Overall interesting problem
+
+Weaknesses:
+- Experimental results seem inconsistently or incompletely reported.
+- A few vagaries in mathematics (see questions)
+
+Questions:
+1. On Theorem 4.5, you claim the result is independent of the dimensionality of the codomain of \(L_2(X)\) and \(L_2(W)\), the values of \(n\) and \(k\) in \(R^d\) and \(R^k\). Your proof deals with \(d=1\). Are you sure your results are independent of the value of \(d\)?
+2. Table 4 says SGD outperforms FPLR, but figure 3 indicates FPLR outperforms SGD. Is this an error? Furthermore, the thoroughness of the deconvolution results is much less thorough than the FLR in the appendix. Please comment.
+3. Can you comment on the order of convergence, \(O(1 / \sqrt{n})\), and how it compares to other methods?
+
+Minor Issues:
+- Can you provide a table for results of B2?
+- Is the equation at the bottom of page 3 a component-wise integral?
+- On (138), is the expectation only over the noise, \(\epsilon\)?
+- Dimensionally not accounted for in (117), (141), etc.
+- Typos and grammatical issues in various lines.
+
+Limitations:
+The authors apply the method to standard quadratic loss, and only to FLR and deconvolution. A low rate of convergence for the excess risk, and some choppy graphs for algorithm 1 seem a liability. However, this is compensated with strong theoretical results and a strong showing for the ML-assisted algorithm.
+
+Ethics Flag: No
+Soundness: 4 (excellent)
+Presentation: 4 (excellent)
+Contribution: 3 (good)
+Rating: 8 (Strong Accept)
+Confidence: 3
+Code Of Conduct: Yes

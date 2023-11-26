@@ -1,0 +1,32 @@
+
+Summary: The paper discusses a novel numerical method for solving Statistical Inverse Problems (SIP) using Stochastic Gradient Descent (SGD) algorithms. The authors propose a modification for the SGD algorithm to smooth the stochastic gradients and improve empirical performance. The paper provides theoretical guarantees for the excess risk performance of the developed algorithm and includes an example of the algorithm applied to a Functional Linear Regression model.
+
+Strengths and Weaknesses:
+
+Strengths:
+
+Originality: The paper presents a novel approach to solving SIP using modified SGD algorithms, which is a fresh take on the problem.
+Quality: The submission is technically sound with theoretical analysis and experimental results supporting the claims. The authors have been careful in evaluating both the strengths and weaknesses of their work.
+Clarity: The paper is well-organized and clearly written, providing enough information for an expert reader to understand the proposed method and the results.
+Significance: The paper addresses a difficult task and proposes a method that could potentially advance the state of the art in solving SIP.
+Weaknesses:
+
+Limited Application Examples: The paper could benefit from more diverse real-world application examples to demonstrate the versatility of the proposed method.
+Comparison with Other Methods: The paper lacks extensive comparison with other state-of-the-art methods, which is crucial for understanding the relative performance of the proposed algorithm.
+Questions:
+
+Could the authors provide more diverse real-world application examples to further validate the effectiveness of the proposed method?
+How does the proposed algorithm compare with other state-of-the-art methods in terms of performance and efficiency?
+Limitations: The authors have discussed the limitations of their work, but more insight into the potential negative societal impact and how it could be mitigated would be beneficial.
+
+Limitations:
+It might be interesting if the results can be extended to nonlinear SIP (or any other relaxation of Assumption 4.1).
+
+Ethics Flag: No
+Soundness: 3 good
+Presentation: 3 good
+Contribution: 2 fair
+Rating: 7: Accept: Technically solid paper, with high impact on at least one sub-area, or moderate-to-high impact on more than one areas, with good-to-excellent evaluation, resources, reproducibility, and no unaddressed ethical considerations.
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes
+.

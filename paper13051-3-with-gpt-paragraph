@@ -1,0 +1,29 @@
+Summary:
+This paper mainly focuses on the formulation of SIP (statistical inverse problem) and the method to solve SIP. In the first part of this paper, the authors formulate SIP utilizing functional analysis. They also give some examples of SIP under this formulation.
+
+In the second part, after showing how to calculate the gradient under this setting, they propose two SGD-based algorithm to solve SIP. They give a finite sample bound for the expected excess risk of their algorithms.
+
+In the last part, the authors provide numerical results for two applications of the Functional Linear Regression problem.
+
+Strengths And Weaknesses:
+Strengths: The authors give a novel numerical method to solve SIP, which shows good originality. They give both theoretical analysis and real data experiments, which shows the good quality of this paper.
+
+Weakness: It seems that they do not show the intuition and advantage of their new method, which makes this paper somehow unclear. And the proof techniques are just classical convex optimization analysis. Therefore this paper lacks significance to some extent.
+
+Questions:
+1.In Lemma 4.3, you've mentioned that there exists a kernel \Phi. Can this kernel be easily found in many SIP problems (other than functional linear regression)?
+Could the authors provide more diverse real-world application examples to further validate the effectiveness of the proposed method?
+How does the proposed algorithm compare with other state-of-the-art methods in terms of performance and efficiency?
+Could the authors comment on the general applicability of the proposed method and its actual improvements over other methods?
+The presentation of numerical results could be improved. It is unclear what the actual advantages of solving SIPs with the proposed SGD algorithms are, particularly considering the limited application examples and comparison with other methods.
+
+Limitations:
+It might be interesting if the results can be extended to nonlinear SIP (or any other relaxation of Assumption 4.1).
+
+Ethics Flag: No
+Soundness: 3 good
+Presentation: 3 good
+Contribution: 2 fair
+Rating: 7: Accept: Technically solid paper, with high impact on at least one sub-area, or moderate-to-high impact on more than one areas, with good-to-excellent evaluation, resources, reproducibility, and no unaddressed ethical considerations.
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes

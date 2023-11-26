@@ -1,0 +1,25 @@
+Summary:
+This paper focuses on fine-tuning language models for controllable language generation tasks ( constraining topic, sentiment, gender distributions, etc). The authors derive the connection between distribution matching approaches and approaches that use KL-divergence penalty to prevent distribution shifts. By deriving a parametric reward baseline for Distributional Policy Gradients (DPG) and use it to extend the work by Khalifa et al., a distribution matching approach for nudging autoregressive generation distributions, this work achieves variance reduction and superior performance.
+
+Strengths And Weaknesses:
+Strengths:
+
+The mathematical derivations for connecting policy gradients and distributional policy gradients (DPG), connecting KL-control and distributional matching, DPG baseline are easy to follow. I appreciate the effort. These derivations provide good perspectives and should be valuable to the community.
+The main claim of introducing a baseline to reduce variance of DPG is well-justified and supported by evidence (Section 4).
+Weaknesses:
+
+I think the contribution on making connection between policy gradients and distributional policy gradients is unnecessarily exaggerated, such as line 77: "So far, the connections between these two seemingly distinct paradigms have not been thoroughly explored". I think even the similarity in names already suggest that they are closely related, and they indeed aren't that different from each others. I think this claim actually makes the paper's logic difficult to follow for me. I would suggest focusing more on the contribution of introducing the parametric baseline, which should be the main product of this paper in my opinion.
+I'd like to see a consolidated definition of the control language generation task. Right now, they are scattered in intro, Sec. 4.1, Sec. 4.2. What's the context and desired outcomes of such tasks? How does DPG achieve the desired outcomes (now it's sort of described in Sec. 4.2)? Can the authors give some examples?
+Questions:
+Overall, I think the technical contributions are solid and novel, but I have concerns about how these contributions are framed and positioned. Can the authors address or clarify the concerns I raised above?
+
+Limitations:
+Limitations and potential negative societal impact are not discussed. Please add relevant pieces to the conclusion section.
+
+Ethics Flag: No
+Soundness: 3 good
+Presentation: 2 fair
+Contribution: 3 good
+Rating: 6: Weak Accept: Technically solid, moderate-to-high impact paper, with no major concerns with respect to evaluation, resources, reproducibility, ethical considerations.
+Confidence: 3: You are fairly confident in your assessment. It is possible that you did not understand some parts of the submission or that you are unfamiliar with some pieces of related work. Math/other details were not carefully checked.
+Code Of Conduct: Yes
