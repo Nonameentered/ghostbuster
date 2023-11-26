@@ -7,6 +7,7 @@ import argparse
 from sklearn.linear_model import LogisticRegression
 from utils.featurize import normalize, t_featurize_logprobs, score_ngram
 from utils.symbolic import train_trigram, get_words, vec_functions, scalar_functions
+import importlib.resources as pkg_resources
 
 def process_input(input_data, enc, is_file):
     if is_file:
@@ -25,15 +26,23 @@ def process_document(input_data: str, openai_key="", is_file=True):
         openai.api_key = openai_key
 
     MAX_TOKENS = 2048
-    best_features = open("model/features.txt").read().strip().split("\n")
+    best_features = open("/Users/mattshu/Code/openreviews/ghostbuster/model/features.txt").read().strip().split("\n")
+    # with pkg_resources.open_text('ghostbuster.model', 'features.txt') as file:
+    #     best_features = file.read().strip().split("\n")
 
     # Load davinci tokenizer
     enc = tiktoken.encoding_for_model("davinci")
 
     # Load model
-    model = pickle.load(open("model/model", "rb"))
-    mu = pickle.load(open("model/mu", "rb"))
-    sigma = pickle.load(open("model/sigma", "rb"))
+    model = pickle.load(open("/Users/mattshu/Code/openreviews/ghostbuster/model/model", "rb"))
+    mu = pickle.load(open("/Users/mattshu/Code/openreviews/ghostbuster/model/mu", "rb"))
+    sigma = pickle.load(open("/Users/mattshu/Code/openreviews/ghostbuster/model/sigma", "rb"))
+    # with pkg_resources.open_binary('ghostbuster.model', 'model') as file:
+    #     model = pickle.load(file)
+    # with pkg_resources.open_binary('ghostbuster.model', 'mu') as file:
+    #     mu = pickle.load(file)
+    # with pkg_resources.open_binary('ghostbuster.model', 'sigma') as file:
+    #     sigma = pickle.load(open(file, "rb"))
 
     if is_file:
         doc = process_input(input_data, enc, is_file=True)
@@ -41,7 +50,7 @@ def process_document(input_data: str, openai_key="", is_file=True):
         doc = process_input(input_data, enc, is_file=False)
 
     # Train trigram
-    print("Loading Trigram...")
+    # print("Loading Trigram...")
 
     trigram_model = train_trigram()
 

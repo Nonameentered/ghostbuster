@@ -89,7 +89,18 @@ def train_trigram(verbose=True, return_tokenizer=False):
     """
     Trains and returns a trigram model on the brown corpus
     """
+    model_path = "/Users/mattshu/Code/openreviews/ghostbuster/model/trigram_model_matt.pkl"
 
+    # Check if the model is already trained and saved
+    if os.path.exists(model_path):
+        with open(model_path, 'rb') as file:
+            model = pickle.load(file)
+            if return_tokenizer:
+                enc = tiktoken.encoding_for_model("davinci")
+                return model, enc.encode
+            else:
+                return model
+    
     enc = tiktoken.encoding_for_model("davinci")
     tokenizer = enc.encode
     vocab_size = enc.n_vocab
