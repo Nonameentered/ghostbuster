@@ -117,11 +117,15 @@ def train_trigram(verbose=True, return_tokenizer=False):
 
     if verbose:
         print("\nTraining n-gram model...")
-
+    
+    model = TrigramBackoff(tokenized_corpus)
+    # Save the trained model to a pickle file
+    with open(model_path, 'wb') as file:
+        pickle.dump(model, file)
     if return_tokenizer:
-        return TrigramBackoff(tokenized_corpus), tokenizer
+        return model, tokenizer
     else:
-        return TrigramBackoff(tokenized_corpus)
+        return model
 
 
 def get_all_logprobs(
